@@ -1,24 +1,20 @@
 import pyrosim.pyrosim as pyrosim
 
-# Initial dimensions of each block
-length = 1
-width = 1
-height = 1
+def Create_World():
 
-# Initial position (x, y, z)
-# The first block's bottom surface is at ground level
-x = 0
-y = 0
-z = height / 2  # Starting z-position to place the bottom of the first block at ground level
+  pyrosim.Start_SDF("world.sdf")  # Output file renamed to world.sdf
 
-pyrosim.Start_SDF("boxes.sdf")  # Start creating the SDF file
+# Generate a single cube at the origin
+  pyrosim.Send_Cube(name="SimpleBlock", pos=[0, 0, 0.5], size=[1, 1, 1])
 
-# Loop to create and position each block
-for i in range(10):  # Iterates 10 times to create 10 blocks
-    # Send a cube with the current dimensions and position
-    pyrosim.Send_Cube(name=f"Box{i}", pos=[x, y, z], size=[length, width, height])
+  pyrosim.End()
 
-    # Update z position for the next block to stack it directly on top of the current one
-    z += height  # Move z up by one block height for the next block
+def Create_Robot():
 
-pyrosim.End()  # Finish creating thecvbn SDF file
+    pyrosim.Start_URDF("body.urdf")
+    pyrosim.Send_Cube(name="Torso", pos=[0, 0, 0.5], size=[1, 1, 1])
+    pyrosim.End()
+
+
+Create_World()
+Create_Robot()
