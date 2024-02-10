@@ -1,17 +1,19 @@
 import pybullet as p
-import time
 import pybullet_data
+import time
 
+physicsClient = p.connect(p.GUI)
+p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
-physicsClient = p.connect(p.GUI) # Start PyBullet in GUI mode.
-p.setGravity(0, 0, -9.8) # Set gravity (optional but recommended)
-p.setAdditionalSearchPath(pybullet_data.getDataPath()) # Optional: Set path for PyBullet to find additional data
-# Add a ground plane
-groundId = p.loadURDF("plane.urdf")
+# add gravity
+p.setGravity(0,0,-9.8)
 
-boxId = p.loadSDF("world.sdf")
+# add environment and objects
+planeId = p.loadURDF("plane.urdf")
+BodyId = p.loadURDF("body.urdf")
+p.loadSDF("world.sdf")
 
-for i in range(10000): # Number of simulation steps; adjust as needed
- p.stepSimulation()
- time.sleep(1./240.) # Simulation time step; adjust realxcvb-time simulation or faster processing
-p.disconnect() # Disconnects
+for i in range(1000000):
+    p.stepSimulation()
+    time.sleep(1/240)
+p.disconnect()
