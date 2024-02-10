@@ -10,5 +10,5 @@ groundId = p.loadURDF("plane.urdf")
 boxId = p.loadSDF("boxes.sdf")
 for i in range(10000): # Number of simulation steps; adjust as needed
     p.stepSimulation()
-    time.sleep(1./240.) # Simulation time step; adjust real-time simulation or faster processing
+    time.sleep(1./240.) # Simulation time step; adjust realxcvb-time simulation or faster processing
 p.disconnect() # Disconnects

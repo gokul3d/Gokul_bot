@@ -21,4 +21,4 @@ for i in range(10):  # Iterates 10 times to create 10 blocks
     # Update z position for the next block to stack it directly on top of the current one
     z += height  # Move z up by one block height for the next block
 
-pyrosim.End()  # Finish creating the SDF file
+pyrosim.End()  # Finish creating thecvbn SDF file
