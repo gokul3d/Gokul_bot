@@ -20,9 +20,9 @@ URDF_FILETYPE = 1
 
 NNDF_FILETYPE   = 2
 
-# global availableLinkIndex
+#global availableLinkIndex
 
-# global linkNamesToIndices
+#global linkNamesToIndices
 
 def End():
 
