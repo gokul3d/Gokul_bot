@@ -8,8 +8,8 @@ class MOTOR:
     def __init__(self, jointName):
         self.jointName = jointName
         # Initialize any other attributes or setup here
-        self.Prepare_To_Act()
-    def Prepare_To_Act(self):
+        #self.Prepare_To_Act()
+    """def Prepare_To_Act(self):
         self.motorValues = np.zeros(c.LENGTH)
         self.amplitude = c.AMPLITUDE
         self.frequency = c.FREQUENCY
@@ -18,9 +18,9 @@ class MOTOR:
         if self.jointName == "Torso_BackLeg":
             self.frequency *= 2
         for i in range(c.LENGTH):
-            self.motorValues[i] = self.amplitude * np.sin(self.frequency * c.targetAngles[i] + self.offset)
+            self.motorValues[i] = self.amplitude * np.sin(self.frequency * c.targetAngles[i] + self.offset)"""
 
-    def Set_Value(self, robot, t):
+    def Set_Value(self, robot, desiredAngle):
         pyrosim.Set_Motor_For_Joint(
 
             bodyIndex=robot,
@@ -29,10 +29,10 @@ class MOTOR:
 
             controlMode=p.POSITION_CONTROL,
 
-            targetPosition=self.motorValues[t],
+            targetPosition=desiredAngle,
 
             maxForce=20
         )
 
-    def Save_Values(self):
-        np.save('data//motorValues.npy', self.motorValues)
+    """def Save_Values(self):
+        np.save('data//motorValues.npy', self.motorValues)"""
