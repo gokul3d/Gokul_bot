@@ -26,6 +26,6 @@ class SIMULATION:
          self.robot.Act(i)
          time.sleep(c.SLEEP_RATE)
 
- def  __del__(self):
+""" def  __del__(self):
      self.robot.Save_Values()
-     p.disconnect()
+     p.disconnect()"""
