@@ -26,6 +26,10 @@ class SIMULATION:
          self.robot.Act(i)
          time.sleep(c.SLEEP_RATE)
 
-""" def  __del__(self):
-     self.robot.Save_Values()
-     p.disconnect()"""
+
+def Get_Fitness(self):
+     self.robot.Get_Fitness()
+
+
+def __del__(self):
+    p.disconnect()
