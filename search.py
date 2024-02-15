@@ -5,4 +5,4 @@ hc = HILL_CLIMBER()
 hc.Evolve()
 
 """os.system("python generate.py)
-s.system("python simulate.py")"""
+s.system("python simula te.py")"""
