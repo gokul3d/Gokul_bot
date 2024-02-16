@@ -5,5 +5,5 @@ phc = PARALLEL_HILL_CLIMBER()
 phc.Evolve()
 phc.Show_Best()
 
-"""os.system("python generate.py)
+"""finally ranos.system("python generate.py)
 s.system("python simulate.py")"""
