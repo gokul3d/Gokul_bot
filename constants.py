@@ -9,9 +9,12 @@ PI = np.pi
 AMPLITUDE = PI/4.0
 FREQUENCY = 20
 PHASE_OFFSET = 0
-numberOfGenerations = 10
+
 targetAngles = np.linspace(-np.pi, np.pi, 1000)
 # how hard the leg motor should apply force maximum
 LEG_MOTOR_MAX_FORCE = 20
 # time sleep rate
-SLEEP_RATE = 1/480
+SLEEP_RATE = 1/240
+
+numberOfGenerations = 10
+populationSize = 2

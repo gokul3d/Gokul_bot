@@ -8,8 +8,9 @@ import time
 
 class SIMULATION:
 
- def __init__(self, mode):
+ def __init__(self, mode, solutionID):
      self.directOrGUI = mode
+     self.solutionID = solutionID
      if mode == 'GUI':
          p.connect(p.GUI)
      else:
@@ -20,7 +21,7 @@ class SIMULATION:
      p.setGravity(0, 0, c.GRAVITY)
      #pyrosim.Prepare_To_Simulate(robotId)
      self.world = WORLD()
-     self.robot = ROBOT()
+     self.robot = ROBOT(self.solutionID)
 
  def Run(self):
        for i in range(c.LENGTH):
