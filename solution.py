@@ -10,22 +10,34 @@ class SOLUTION:
         self.weights = self.weights * 2 - 1
 
     def Evaluate(self, mode):
-        self.Create_World()
-        self.Generate_Body()
-        self.Generate_Brain()
-
-        # Construct the command string, including self.myID
-        command = "start /B python simulate.py " + mode + " " + str(self.myID)
-
-        # Optional: Print the command for verification
-        print(command)  # Uncomment this line for debugging
-
-        # Execute the command
-        os.system(command)
-
-        fitnessFile = open("fitness.txt", "r")
-        self.fitness = float(fitnessFile.read())
-        fitnessFile.close()
+        # self.Create_World()
+        # self.Generate_Body()
+        # self.Generate_Brain()
+        #
+        # # Construct the command string, including self.myID
+        # command = "start /B python simulate.py " + mode + " " + str(self.myID)
+        #
+        # # Optional: Print the command for verification
+        # print(command)  # Uncomment this line for debugging
+        #
+        # # Execute the command
+        # os.system(command)
+        #
+        # # Construct the fitness file name as a string
+        # fitnessFileName = "fitness" + str(self.myID) + ".txt"
+        #
+        # # Wait for the fitness file to exist
+        # while not os.path.exists(fitnessFileName):
+        #     time.sleep(0.01)
+        #
+        # # Now that the file exists, read the fitness value
+        # with open(fitnessFileName, "r") as fitnessFile:
+        #     self.fitness = float(fitnessFile.read())
+        #     print(self.fitness)
+        #
+        # # Optionally, consider removing the fitness file after reading to clean up
+        # # os.remove(fitnessFileName
+        pass
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
@@ -67,7 +79,21 @@ class SOLUTION:
         randomColumn = random.randint(0, 1)
         self.weights[randomRow, randomColumn] = random.random() * 2 - 1
 
+    def Set_ID(self, newID):
+        self.myID = newID
 
-    def Set_ID(self):
-        self.myID
+    def Start_Simulation(self, mode):
+        self.Create_World()
+        self.Generate_Body()
+        self.Generate_Brain()
+        os.system( "start /B python simulate.py " + mode + " " + str(self.myID))
+
+    def Wait_For_Simulation_To_End(self):
+        while not os.path.exists("fitness" + str(self.myID) + ".txt"):
+            time.sleep(0.01)
+        fitnessFile = open("fitness" + str(self.myID) + ".txt", "r")
+        self.fitness = float(fitnessFile.read())
+        fitnessFile.close()
+        # print(f"Solution {self.myID} Fitness: {self.fitness}")
+        os.system("del fitness" +str(self.myID)+".txt")
 
