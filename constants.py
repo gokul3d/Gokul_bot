@@ -2,7 +2,7 @@ import numpy as np
 
 GRAVITY = -9.8
 
-LENGTH = 1000
+LENGTH = 10000
 #
 PI = np.pi
 # Leg Forces
@@ -16,5 +16,9 @@ LEG_MOTOR_MAX_FORCE = 20
 # time sleep rate
 SLEEP_RATE = 1/240
 
-numberOfGenerations = 10
-populationSize = 10
+numberOfGenerations = 1
+populationSize = 1
+
+numSensorNeurons = 9
+
+numMotorNeurons = 8
