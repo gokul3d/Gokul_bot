@@ -16,9 +16,11 @@ LEG_MOTOR_MAX_FORCE = 20
 # time sleep rate
 SLEEP_RATE = 1/240
 
-numberOfGenerations = 1
-populationSize = 1
+numberOfGenerations = 30
+populationSize = 10
 
-numSensorNeurons = 9
+numSensorNeurons = 4 #Since only four sensors are in contact
 
-numMotorNeurons = 8
+numMotorNeurons = 8 #But all joints are actuating all time so leave it untouched
+
+motorJointRange = 0.5

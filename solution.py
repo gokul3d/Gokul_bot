@@ -104,19 +104,13 @@ class SOLUTION:
 
     def Generate_Brain(self):
         pyrosim.Start_NeuralNetwork("brain"+str(self.myID)+".nndf")
+        #since only 4 feet are in contact which are all lower legs
+        pyrosim.Send_Sensor_Neuron(name=0, linkName="LowerFrontLeg")
+        pyrosim.Send_Sensor_Neuron(name=1, linkName="LowerBackLeg")
+        pyrosim.Send_Sensor_Neuron(name=2, linkName="LowerLeftLeg")
+        pyrosim.Send_Sensor_Neuron(name=3, linkName="LowerRightLeg")
 
-        pyrosim.Send_Sensor_Neuron(name=0, linkName="Torso")
-        pyrosim.Send_Sensor_Neuron(name=1, linkName="FrontLeg")
-        pyrosim.Send_Sensor_Neuron(name=2, linkName="BackLeg")
-        pyrosim.Send_Sensor_Neuron(name=3, linkName="LeftLeg")
-        pyrosim.Send_Sensor_Neuron(name=4, linkName="RightLeg")
-
-        pyrosim.Send_Sensor_Neuron(name=5, linkName="LowerFrontLeg")
-        pyrosim.Send_Sensor_Neuron(name=6, linkName="LowerBackLeg")
-        pyrosim.Send_Sensor_Neuron(name=7, linkName="LowerLeftLeg")
-        pyrosim.Send_Sensor_Neuron(name=8, linkName="LowerRightLeg")
-
-
+        #but send_Motor_Neuron remains the same
         pyrosim.Send_Motor_Neuron(name=9, jointName="Torso_FrontLeg")
         pyrosim.Send_Motor_Neuron(name=10, jointName="Torso_BackLeg")
         pyrosim.Send_Motor_Neuron(name=11, jointName="Torso_LeftLeg")
